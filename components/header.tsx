@@ -31,18 +31,13 @@ export function Header() {
     }`}>
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
-          {/* Logo */}
-          <div className="flex items-center space-x-3 group">
-            <div className="relative">
-              <div className="w-10 h-10 bg-gradient-to-r from-purple-500 to-blue-500 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                <span className="text-white font-bold text-lg">A</span>
-              </div>
-              <div className="absolute inset-0 bg-gradient-to-r from-purple-500 to-blue-500 rounded-xl blur opacity-0 group-hover:opacity-50 transition-opacity duration-300" />
-            </div>
+          {/* Logo on the left */}
+          <a href="/" className="flex items-center space-x-3 group">
+            <img src="/aft.svg" alt="Afrainity Logo" className="h-10 w-auto" />
             <span className="text-white font-bold text-xl group-hover:text-purple-300 transition-colors">
               Afrainity Technologies
             </span>
-          </div>
+          </a>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
