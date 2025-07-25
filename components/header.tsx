@@ -1,56 +1,90 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { Menu, X } from "lucide-react"
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isScrolled, setIsScrolled] = useState(false)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50)
+    }
+
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
+  const navItems = [
+    { href: "#about", label: "About" },
+    { href: "#solutions", label: "Solutions" },
+    { href: "#contact", label: "Contact" },
+  ]
 
   return (
-    <header className="fixed top-0 w-full z-50 bg-slate-950/80 backdrop-blur-md border-b border-purple-500/20">
+    <header className={`fixed top-0 w-full z-50 transition-all duration-300 ${
+      isScrolled 
+        ? 'bg-slate-950/90 backdrop-blur-md border-b border-purple-500/20 shadow-2xl' 
+        : 'bg-transparent'
+    }`}>
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
-          <div className="flex items-center space-x-2">
-            <div className="w-8 h-8 bg-gradient-to-r from-purple-500 to-blue-500 rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-sm">A</span>
+          {/* Logo */}
+          <div className="flex items-center space-x-3 group">
+            <div className="relative">
+              <div className="w-10 h-10 bg-gradient-to-r from-purple-500 to-blue-500 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                <span className="text-white font-bold text-lg">A</span>
+              </div>
+              <div className="absolute inset-0 bg-gradient-to-r from-purple-500 to-blue-500 rounded-xl blur opacity-0 group-hover:opacity-50 transition-opacity duration-300" />
             </div>
-            <span className="text-white font-bold text-xl">Afrainity Technologies</span>
+            <span className="text-white font-bold text-xl group-hover:text-purple-300 transition-colors">
+              Afrainity Technologies
+            </span>
           </div>
 
+          {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
-            <a href="#about" className="text-gray-300 hover:text-purple-400 transition-colors">
-              About
-            </a>
-            <a href="#solutions" className="text-gray-300 hover:text-purple-400 transition-colors">
-              Solutions
-            </a>
-            <a href="#contact" className="text-gray-300 hover:text-purple-400 transition-colors">
-              Contact
-            </a>
-            <Button className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700">
+            {navItems.map((item) => (
+              <a
+                key={item.href}
+                href={item.href}
+                className="relative text-gray-300 hover:text-purple-400 transition-colors duration-300 group py-2"
+              >
+                {item.label}
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-purple-500 to-blue-500 group-hover:w-full transition-all duration-300" />
+              </a>
+            ))}
+            <Button className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white px-6 py-2 rounded-full shadow-lg hover:shadow-purple-500/25 transition-all duration-300 hover:scale-105">
               Get Started
             </Button>
           </nav>
 
-          <button className="md:hidden text-white" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+          {/* Mobile Menu Button */}
+          <button 
+            className="md:hidden text-white p-2 rounded-lg hover:bg-purple-500/20 transition-colors"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+          >
             {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
 
+        {/* Mobile Navigation */}
         {isMenuOpen && (
-          <nav className="md:hidden mt-4 pb-4 border-t border-purple-500/20 pt-4">
+          <nav className="md:hidden mt-6 pb-6 border-t border-purple-500/20 pt-6">
             <div className="flex flex-col space-y-4">
-              <a href="#about" className="text-gray-300 hover:text-purple-400 transition-colors">
-                About
-              </a>
-              <a href="#solutions" className="text-gray-300 hover:text-purple-400 transition-colors">
-                Solutions
-              </a>
-              <a href="#contact" className="text-gray-300 hover:text-purple-400 transition-colors">
-                Contact
-              </a>
-              <Button className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 w-full">
+              {navItems.map((item) => (
+                <a
+                  key={item.href}
+                  href={item.href}
+                  className="text-gray-300 hover:text-purple-400 transition-colors duration-300 py-2 px-4 rounded-lg hover:bg-purple-500/10"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  {item.label}
+                </a>
+              ))}
+              <Button className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white w-full mt-4 rounded-full shadow-lg hover:shadow-purple-500/25 transition-all duration-300">
                 Get Started
               </Button>
             </div>
