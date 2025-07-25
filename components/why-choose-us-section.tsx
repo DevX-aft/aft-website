@@ -66,18 +66,6 @@ export function WhyChooseUsSection() {
 
   const ActiveIcon = features[activeFeature].icon;
 
-  // Fix hydration error: generate random dot positions/delays on client only
-  const [dots, setDots] = useState<{left: number, top: number, delay: number}[]>([]);
-  useEffect(() => {
-    setDots(
-      Array.from({ length: 8 }, () => ({
-        left: 20 + Math.random() * 60,
-        top: 20 + Math.random() * 60,
-        delay: Math.random() * 2,
-      }))
-    );
-  }, []);
-
   return (
     <section ref={sectionRef} className="py-32 bg-gradient-to-br from-slate-900 to-slate-800 relative overflow-hidden">
       {/* Dynamic Background */}
@@ -176,14 +164,14 @@ export function WhyChooseUsSection() {
 
               {/* Floating Elements */}
               <div className="absolute inset-0">
-                {dots.map((dot, i) => (
+                {[...Array(8)].map((_, i) => (
                   <div
                     key={i}
                     className={`absolute w-2 h-2 bg-gradient-to-r ${features[activeFeature].color} rounded-full opacity-30 animate-ping`}
                     style={{
-                      left: `${dot.left}%`,
-                      top: `${dot.top}%`,
-                      animationDelay: `${dot.delay}s`
+                      left: `${20 + Math.random() * 60}%`,
+                      top: `${20 + Math.random() * 60}%`,
+                      animationDelay: `${Math.random() * 2}s`
                     }}
                   />
                 ))}
