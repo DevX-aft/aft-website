@@ -77,15 +77,11 @@ export function SolutionsSection() {
       <div className="container mx-auto px-4 relative z-10">
         {/* Section Header */}
         <div className="text-center mb-20">
-          <div className="inline-flex items-center space-x-2 bg-purple-500/10 border border-purple-500/20 rounded-full px-6 py-3 mb-8 backdrop-blur-sm">
-            <Sparkles className="w-4 h-4 text-purple-400" />
-            <span className="text-purple-300 text-sm font-medium">Our Solutions</span>
-          </div>
-          
+          <span className="text-blue-400 text-sm font-semibold tracking-wider uppercase">Our Solutions</span>
           <h2 className={`text-5xl md:text-7xl font-bold mb-8 transition-all duration-1000 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}>
-            <span className="bg-gradient-to-r from-white via-purple-200 to-blue-200 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-white via-purple-200 to-blue-200 bg-clip-text text-transparent leading-snug animate-fade-in-up mb-2 inline-block">
               Comprehensive AI
             </span>
             <br />
