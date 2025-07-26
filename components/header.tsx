@@ -53,6 +53,23 @@ export function Header() {
     }
   }, [isMenuOpen])
 
+  // Close mobile nav when clicking outside
+  useEffect(() => {
+    if (!isMenuOpen) return;
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        mobileNavRef.current &&
+        !mobileNavRef.current.contains(event.target as Node)
+      ) {
+        setIsMenuOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [isMenuOpen]);
+
   // Track hash in state for instant underline update
   const [currentHash, setCurrentHash] = useState(
     typeof window !== "undefined" ? window.location.hash : ""

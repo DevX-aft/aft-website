@@ -51,19 +51,19 @@ export function ContactSection() {
     {
       icon: Facebook,
       name: "Facebook",
-      href: "#", // Replace with your real link
+      href: "https://www.facebook.com/profile.php?id=61561562593103",
       sr: "Visit our Facebook page"
     },
     {
       icon: Linkedin,
       name: "LinkedIn",
-      href: "#", // Replace with your real link
+      href: "https://www.linkedin.com/company/afrainity-technologies/",
       sr: "Visit our LinkedIn profile"
     },
     {
       icon: Twitter,
       name: "X",
-      href: "#", // Replace with your real link
+      href: "https://x.com/afrainitytech",
       sr: "Visit our X profile"
     },
   ]
@@ -124,7 +124,7 @@ export function ContactSection() {
               <p className="text-sm text-gray-400">Stay connected on social media</p>
             </div>
             
-            <div className="flex justify-center space-x-6">
+            <div className="flex flex-col sm:flex-row justify-center items-stretch sm:items-center gap-4 sm:gap-6 w-full max-w-md mx-auto">
               {socialLinks.map((social, idx) => (
                 <a
                   key={idx}
@@ -132,7 +132,7 @@ export function ContactSection() {
                   aria-label={social.sr}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group flex items-center space-x-3 px-6 py-3 bg-slate-900/50 border border-slate-800 rounded-lg hover:border-blue-500/50 hover:bg-blue-500/10 transition-all duration-300"
+                  className="group flex items-center space-x-3 px-6 py-3 bg-slate-900/50 border border-slate-800 rounded-lg hover:border-blue-500/50 hover:bg-blue-500/10 transition-all duration-300 w-full sm:w-auto justify-center"
                 >
                   <social.icon className="w-5 h-5 text-gray-400 group-hover:text-blue-400 transition-colors duration-300" />
                   <span className="text-white group-hover:text-blue-400 font-medium transition-colors duration-300">
