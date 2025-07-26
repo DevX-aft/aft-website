@@ -260,7 +260,7 @@ export function HeroSection() {
                   Africa Through
                 </span>
                 <span className="block bg-gradient-to-r from-white via-cyan-400 to-blue-400 bg-clip-text text-transparent">
-                  AI Innovation
+                  AI
                 </span>
               </h1>
             </div>

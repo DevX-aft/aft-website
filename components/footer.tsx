@@ -2,6 +2,7 @@
 
 import { ArrowUp } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import Image from "next/image"
 
 export function Footer() {
   const scrollToTop = () => {
@@ -20,10 +21,14 @@ export function Footer() {
         <div className="flex flex-col md:flex-row justify-between items-center">
           {/* Logo and Company Info */}
           <div className="flex items-center space-x-3 mb-6 md:mb-0 group">
-            <div className="relative">
-              <div className="w-10 h-10 bg-gradient-to-r from-purple-500 to-blue-500 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                <span className="text-white font-bold text-lg">A</span>
-              </div>
+            <div className="relative w-10 h-10">
+              <Image
+                src="/aft.svg"
+                alt="Afrainity Logo"
+                width={40}
+                height={40}
+                className="rounded-xl group-hover:scale-110 transition-transform duration-300"
+              />
               <div className="absolute inset-0 bg-gradient-to-r from-purple-500 to-blue-500 rounded-xl blur opacity-0 group-hover:opacity-50 transition-opacity duration-300" />
             </div>
             <div>

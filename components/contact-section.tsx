@@ -1,220 +1,143 @@
 "use client"
 
-import { MapPin, Mail, Phone, Facebook, Twitter, Linkedin, Instagram, Send, MessageCircle } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
+import { MapPin, Mail, Phone, Facebook, Linkedin, Twitter } from "lucide-react"
 import { useEffect, useRef, useState } from "react"
 
 export function ContactSection() {
   const [isVisible, setIsVisible] = useState(false)
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: ''
-  })
   const sectionRef = useRef<HTMLElement>(null)
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true)
-        }
+        if (entry.isIntersecting) setIsVisible(true)
       },
       { threshold: 0.1 }
     )
 
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current)
-    }
-
+    if (sectionRef.current) observer.observe(sectionRef.current)
     return () => observer.disconnect()
   }, [])
 
   const contactInfo = [
     {
       icon: MapPin,
-      title: "Address",
-      details: "Harare Institute of Technology",
-      color: "from-purple-500 to-pink-500"
+      label: "Address",
+      value: "Harare Institute of Technology Innovation Hub, Belvedere, Harare, Zimbabwe",
     },
     {
       icon: Mail,
-      title: "Email",
-      details: ["sales@hit.ac.zw", "sales@afrainity.com"],
-      color: "from-blue-500 to-cyan-500"
+      label: "Primary Email",
+      value: "sales@hit.ac.zw",
+    },
+    {
+      icon: Mail,
+      label: "Secondary Email",
+      value: "sales@afrainity.com",
     },
     {
       icon: Phone,
-      title: "Phone",
-      details: ["+263 77 982 6816", "+263 77 950 3948"],
-      color: "from-indigo-500 to-purple-500"
+      label: "Primary Phone",
+      value: "+263 77 982 6816"
+    },
+    {
+      icon: Phone,
+      label: "Secondary Phone",
+      value: "+263 77 950 3948"
     },
   ]
 
   const socialLinks = [
-    { icon: Facebook, href: "#", color: "hover:text-blue-400" },
-    { icon: Twitter, href: "#", color: "hover:text-sky-400" },
-    { icon: Linkedin, href: "#", color: "hover:text-blue-600" },
-    { icon: Instagram, href: "#", color: "hover:text-pink-400" },
+    {
+      icon: Facebook,
+      name: "Facebook",
+      href: "#", // Replace with your real link
+      sr: "Visit our Facebook page"
+    },
+    {
+      icon: Linkedin,
+      name: "LinkedIn",
+      href: "#", // Replace with your real link
+      sr: "Visit our LinkedIn profile"
+    },
+    {
+      icon: Twitter,
+      name: "X",
+      href: "#", // Replace with your real link
+      sr: "Visit our X profile"
+    },
   ]
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    })
-  }
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    // Handle form submission
-    console.log('Form submitted:', formData)
-  }
-
   return (
-    <section ref={sectionRef} id="contact" className="py-32 bg-slate-950 relative overflow-hidden">
-      {/* Background Elements */}
-      <div className="absolute inset-0">
-        <div className="absolute top-20 left-20 w-96 h-96 bg-purple-500/5 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-20 right-20 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-72 h-72 bg-indigo-500/5 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }} />
-      </div>
-
-      <div className="container mx-auto px-4 relative z-10">
-        {/* Section Header */}
-        <div className="text-center mb-20">
-          <h2 className={`text-5xl md:text-7xl font-bold mb-8 transition-all duration-1000 ${
-            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+    <section
+      ref={sectionRef}
+      id="contact"
+      className="py-20 bg-slate-950 min-h-screen flex items-center"
+    >
+      <div className="container mx-auto px-6 max-w-4xl w-full">
+        {/* Header */}
+        <div className="text-center mb-16">
+          <h2 className={`text-4xl md:text-5xl font-bold text-white mb-6 transition-all duration-700 ${
+            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}>
-            <span className="bg-gradient-to-r from-white via-purple-200 to-blue-200 bg-clip-text text-transparent">
-              Get In
-            </span>
-            <br />
-            <span className="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
-              Touch
-            </span>
+            Contact Us
           </h2>
-          <p className={`text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto leading-relaxed transition-all duration-1000 delay-300 ${
-            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+          <p className={`text-lg text-gray-400 max-w-2xl mx-auto leading-relaxed transition-all duration-700 delay-150 ${
+            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}>
-            Ready to transform your business with AI? Let's start a conversation about your needs and how we can help you achieve your goals.
+            We'd love to hear from you. Reach out using the information or social handles below.
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-16 mb-20">
-          {/* Contact Form */}
-          <div className={`transition-all duration-1000 delay-500 ${
-            isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'
+        {/* Contact Content */}
+        <div className="max-w-3xl mx-auto">
+          {/* Contact Info Grid */}
+          <div className={`grid gap-8 mb-12 transition-all duration-700 delay-300 ${
+            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}>
-            <div className="p-8 rounded-3xl bg-slate-800/30 border border-slate-700/50 backdrop-blur-sm">
-              <div className="flex items-center space-x-3 mb-8">
-                <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-blue-500 rounded-2xl flex items-center justify-center">
-                  <MessageCircle className="w-6 h-6 text-white" />
-                </div>
-                <h3 className="text-2xl font-bold text-white">Send us a message</h3>
-              </div>
-
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div>
-                  <Input
-                    type="text"
-                    name="name"
-                    placeholder="Your Name"
-                    value={formData.name}
-                    onChange={handleInputChange}
-                    className="bg-slate-700/50 border-slate-600/50 text-white placeholder-gray-400 focus:border-purple-500 focus:ring-purple-500/20 rounded-xl h-12"
-                    required
-                  />
-                </div>
-                
-                <div>
-                  <Input
-                    type="email"
-                    name="email"
-                    placeholder="Your Email"
-                    value={formData.email}
-                    onChange={handleInputChange}
-                    className="bg-slate-700/50 border-slate-600/50 text-white placeholder-gray-400 focus:border-purple-500 focus:ring-purple-500/20 rounded-xl h-12"
-                    required
-                  />
-                </div>
-                
-                <div>
-                  <Textarea
-                    name="message"
-                    placeholder="Tell us about your project..."
-                    value={formData.message}
-                    onChange={handleInputChange}
-                    className="bg-slate-700/50 border-slate-600/50 text-white placeholder-gray-400 focus:border-purple-500 focus:ring-purple-500/20 rounded-xl min-h-32 resize-none"
-                    required
-                  />
-                </div>
-                
-                <Button
-                  type="submit"
-                  className="w-full group bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white py-6 text-lg font-semibold rounded-xl shadow-2xl hover:shadow-purple-500/25 transition-all duration-300 hover:scale-105"
-                >
-                  <span className="mr-3">Send Message</span>
-                  <Send className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                </Button>
-              </form>
-            </div>
-          </div>
-
-          {/* Contact Information */}
-          <div className={`space-y-8 transition-all duration-1000 delay-700 ${
-            isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'
-          }`}>
-            {contactInfo.map((info, index) => (
-              <div
-                key={index}
-                className="group p-8 rounded-3xl bg-slate-800/30 border border-slate-700/50 hover:border-purple-500/50 transition-all duration-300 hover:transform hover:scale-105 backdrop-blur-sm"
+            {contactInfo.map((info, idx) => (
+              <div 
+                key={idx} 
+                className="flex items-start space-x-4 p-6 rounded-lg bg-slate-900/50 border border-slate-800 hover:border-blue-500/30 transition-all duration-300 hover:bg-slate-900/70"
               >
-                <div className="flex items-start space-x-6">
-                  <div className={`w-16 h-16 bg-gradient-to-r ${info.color} rounded-2xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform`}>
-                    <info.icon className="w-8 h-8 text-white" />
+                <div className="flex-shrink-0 w-12 h-12 bg-blue-500/10 rounded-lg flex items-center justify-center">
+                  <info.icon className="w-6 h-6 text-blue-400" />
+                </div>
+                <div className="flex-1 min-w-0">
+                  <div className="text-sm font-medium text-gray-400 mb-1 uppercase tracking-wide">
+                    {info.label}
                   </div>
-                  
-                  <div>
-                    <h3 className="text-xl font-bold text-white mb-3 group-hover:text-purple-300 transition-colors">
-                      {info.title}
-                    </h3>
-                    {Array.isArray(info.details) ? (
-                      <div className="space-y-2">
-                        {info.details.map((detail, detailIndex) => (
-                          <p key={detailIndex} className="text-gray-300 group-hover:text-white transition-colors">
-                            {detail}
-                          </p>
-                        ))}
-                      </div>
-                    ) : (
-                      <p className="text-gray-300 group-hover:text-white transition-colors">{info.details}</p>
-                    )}
+                  <div className="text-base text-white font-medium leading-relaxed break-words">
+                    {info.value}
                   </div>
                 </div>
               </div>
             ))}
           </div>
-        </div>
 
-        {/* Social Links */}
-        <div className={`text-center transition-all duration-1000 delay-900 ${
-          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-        }`}>
-          <div className="max-w-2xl mx-auto p-12 rounded-3xl bg-gradient-to-r from-purple-900/20 to-blue-900/20 border border-purple-500/20 backdrop-blur-sm">
-            <h3 className="text-3xl font-bold text-white mb-6">Connect With Us</h3>
-            <p className="text-gray-300 mb-8">Follow us on social media for the latest updates and insights</p>
+          {/* Social Links */}
+          <div className={`text-center transition-all duration-700 delay-500 ${
+            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+          }`}>
+            <div className="mb-6">
+              <h3 className="text-lg font-semibold text-white mb-2">Follow Us</h3>
+              <p className="text-sm text-gray-400">Stay connected on social media</p>
+            </div>
             
             <div className="flex justify-center space-x-6">
-              {socialLinks.map((social, index) => (
+              {socialLinks.map((social, idx) => (
                 <a
-                  key={index}
+                  key={idx}
                   href={social.href}
-                  className={`group w-14 h-14 bg-slate-700/50 rounded-2xl flex items-center justify-center hover:bg-gradient-to-r hover:from-purple-500 hover:to-blue-500 transition-all duration-300 hover:scale-110 ${social.color}`}
+                  aria-label={social.sr}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex items-center space-x-3 px-6 py-3 bg-slate-900/50 border border-slate-800 rounded-lg hover:border-blue-500/50 hover:bg-blue-500/10 transition-all duration-300"
                 >
-                  <social.icon className="w-6 h-6 text-gray-400 group-hover:text-white transition-colors" />
+                  <social.icon className="w-5 h-5 text-gray-400 group-hover:text-blue-400 transition-colors duration-300" />
+                  <span className="text-white group-hover:text-blue-400 font-medium transition-colors duration-300">
+                    {social.name}
+                  </span>
                 </a>
               ))}
             </div>
@@ -224,3 +147,5 @@ export function ContactSection() {
     </section>
   )
 }
+
+export default ContactSection
