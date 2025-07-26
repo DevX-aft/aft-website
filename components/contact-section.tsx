@@ -27,22 +27,22 @@ export function ContactSection() {
     },
     {
       icon: Mail,
-      label: "Primary Email",
+      label: "Email",
       value: "sales@hit.ac.zw",
     },
     {
       icon: Mail,
-      label: "Secondary Email",
+      label: "Email",
       value: "sales@afrainity.com",
     },
     {
       icon: Phone,
-      label: "Primary Phone",
+      label: "Phone",
       value: "+263 77 982 6816"
     },
     {
       icon: Phone,
-      label: "Secondary Phone",
+      label: "Phone",
       value: "+263 77 950 3948"
     },
   ]
