@@ -53,6 +53,18 @@ const config: Config = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+         keyframes: {
+      'electron-orbit': {
+        '0%': { transform: 'translate(0%, 0%)' },
+        '25%': { transform: 'translate(100%, 0%)' },
+        '50%': { transform: 'translate(100%, 100%)' },
+        '75%': { transform: 'translate(0%, 100%)' },
+        '100%': { transform: 'translate(0%, 0%)' },
+      }
+    },
+    animation: {
+      'electron-orbit': 'electron-orbit 8s linear infinite',
+    }
       },
       borderRadius: {
         lg: "var(--radius)",

@@ -10,6 +10,7 @@ import { Menu, X } from "lucide-react"
 const NAV_LINKS = [
   { href: "#about", label: "About" },
   { href: "#solutions", label: "Solutions" },
+  { href: "#why-choose-us", label: "Why Choose Us" },
   { href: "#contact", label: "Contact" },
 ]
 
@@ -144,11 +145,6 @@ export function Header() {
               />
             </Link>
           ))}
-          <Button
-            className="ml-2 bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-700 hover:to-blue-600 text-white px-6 py-2 rounded-full shadow-md hover:shadow-blue-500/30 transition-all duration-200 font-semibold"
-          >
-            Get Started
-          </Button>
         </nav>
 
         {/* Mobile Hamburger Button */}
@@ -195,13 +191,6 @@ export function Header() {
               {item.label}
             </Link>
           ))}
-          <Button
-            className="mt-2 w-full bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-700 hover:to-blue-600 text-white rounded-full shadow-md hover:shadow-blue-500/30 transition-all duration-200 font-semibold"
-            tabIndex={isMenuOpen ? 0 : -1}
-            onClick={() => setIsMenuOpen(false)}
-          >
-            Get Started
-          </Button>
         </div>
       </div>
     </header>

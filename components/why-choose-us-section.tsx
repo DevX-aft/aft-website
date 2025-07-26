@@ -67,7 +67,7 @@ export function WhyChooseUsSection() {
   const ActiveIcon = features[activeFeature].icon;
 
   return (
-    <section ref={sectionRef} className="py-32 bg-gradient-to-br from-slate-900 to-slate-800 relative overflow-hidden">
+    <section ref={sectionRef} id= "why-choose-us" className="py-32 bg-gradient-to-br from-slate-900 to-slate-800 relative overflow-hidden">
       {/* Dynamic Background */}
       <div className="absolute inset-0">
         <div className="absolute top-1/4 left-0 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl animate-pulse" />
