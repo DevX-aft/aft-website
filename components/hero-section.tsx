@@ -74,22 +74,16 @@ export function HeroSection() {
           </div>
           {/* Headline and subtext on the right */}
           <div className="text-center md:text-left flex-1">
-            {/* Animated Badge */}
-            <div className="inline-flex items-center space-x-2 bg-purple-500/10 border border-purple-500/20 rounded-full px-6 py-3 mb-8 backdrop-blur-sm hover:bg-purple-500/20 transition-all duration-300 group">
-              <Sparkles className="w-4 h-4 text-purple-400 group-hover:rotate-12 transition-transform" />
-              <span className="text-purple-300 text-sm font-medium">AI Innovation for Africa</span>
-              <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
-            </div>
             {/* Main Heading with Stagger Animation */}
             <div className="space-y-4 mb-8">
               <h1 className="text-6xl md:text-8xl font-bold leading-tight">
-                <span className="block bg-gradient-to-r from-white via-purple-200 to-blue-200 bg-clip-text text-transparent animate-fade-in-up">
+                <span className="block bg-gradient-to-r from-white via-cyan-200 to-blue-200 bg-clip-text text-transparent animate-fade-in-up">
                   Transforming
                 </span>
                 <span className="block bg-gradient-to-r from-purple-400 via-blue-400 to-cyan-400 bg-clip-text text-transparent animate-fade-in-up animation-delay-200">
                   Africa Through
                 </span>
-                <span className="block bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent animate-fade-in-up animation-delay-400">
+                <span className="block bg-gradient-to-r from-blue-400 via-cyan-400 to-white bg-clip-text text-transparent">
                   AI Innovation
                 </span>
               </h1>
@@ -98,46 +92,7 @@ export function HeroSection() {
               Accessible AI solutions to power productivity and seamless growth across the continent. 
               Building the future of African technology, one innovation at a time.
             </p>
-            {/* CTA Buttons with Hover Effects */}
-            <div className="flex flex-col sm:flex-row gap-6 justify-center md:justify-start items-center animate-fade-in-up animation-delay-800">
-              <Button
-                size="lg"
-                className="group bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white px-10 py-6 text-lg font-semibold rounded-full shadow-2xl hover:shadow-purple-500/25 transition-all duration-300 hover:scale-105"
-              >
-                <span className="mr-3">Discover Our Solutions</span>
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </Button>
-              <Button
-                variant="outline"
-                size="lg"
-                className="group border-2 border-purple-500/50 text-purple-300 hover:bg-purple-500/10 px-10 py-6 text-lg bg-transparent rounded-full backdrop-blur-sm hover:border-purple-400 transition-all duration-300 hover:scale-105"
-              >
-                <Play className="w-5 h-5 mr-3 group-hover:scale-110 transition-transform" />
-                Watch Demo
-              </Button>
-            </div>
-            {/* Stats Section */}
-            <div className="grid grid-cols-3 gap-8 mt-20 animate-fade-in-up animation-delay-1000">
-              <div className="text-center">
-                <div className="text-3xl md:text-4xl font-bold text-white mb-2">50+</div>
-                <div className="text-gray-400 text-sm">Projects Delivered</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl md:text-4xl font-bold text-white mb-2">10+</div>
-                <div className="text-gray-400 text-sm">Countries Served</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl md:text-4xl font-bold text-white mb-2">99%</div>
-                <div className="text-gray-400 text-sm">Client Satisfaction</div>
-              </div>
-            </div>
           </div>
-        </div>
-      </div>
-      {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-        <div className="w-6 h-10 border-2 border-purple-400/50 rounded-full flex justify-center">
-          <div className="w-1 h-3 bg-purple-400 rounded-full mt-2 animate-pulse" />
         </div>
       </div>
       <style jsx>{`
