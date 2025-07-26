@@ -185,15 +185,6 @@ export function WhyChooseUsSection() {
                   ))}
                 </ul>
                 {/* Learn more wiggle, animated in on hover */}
-                <div className={`
-                  flex items-center text-cyan-300 font-medium
-                  transition-all
-                  ${hovered===i ? "opacity-100 -translate-y-0" : "opacity-0 translate-y-4"}
-                  group-hover:opacity-100 group-hover:-translate-y-1
-                `}>
-                  <span>Learn More</span>
-                  <ArrowRight className="ml-2 w-4 h-4" />
-                </div>
               </div>
               {/* Sparkle highlights on hover (on top of card) */}
               {hovered === i && (

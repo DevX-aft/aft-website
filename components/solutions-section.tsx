@@ -226,11 +226,6 @@ export function SolutionsSection() {
                     </li>
                   ))}
                 </ul>
-
-                <div className="flex items-center text-cyan-400 group-hover:text-white transition-colors">
-                  <span className="text-sm font-medium mr-2">Learn more</span>
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </div>
               </CardContent>
 
               {/* Hover Particles */}

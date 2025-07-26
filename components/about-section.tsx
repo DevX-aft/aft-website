@@ -105,10 +105,6 @@ export function AboutSection() {
                   <p className="text-gray-300 leading-relaxed mb-6">
                     {feature.description}
                   </p>
-                  <div className="flex items-center text-blue-400 group-hover:text-blue-300 transition-colors">
-                    <span className="text-sm font-medium mr-2">Learn more</span>
-                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                  </div>
                 </div>
               </div>
             </Tilt>
@@ -122,8 +118,9 @@ export function AboutSection() {
           <div className="p-12 rounded-3xl bg-gradient-to-r from-blue-900/20 to-cyan-900/20 border border-blue-500/20 backdrop-blur-md shadow-xl">
             <h3 className="text-3xl font-bold text-white mb-6">Our Mission</h3>
             <p className="text-xl text-gray-300 leading-relaxed">
-              To democratize AI access and drive digital transformation across the continent, 
-              empowering African businesses with intelligent solutions that understand local contexts and challenges.
+              To empower everyone in Africa with accessible
+AI solutions for enhanced productivity and
+seamless growth.
             </p>
           </div>
         </div>
