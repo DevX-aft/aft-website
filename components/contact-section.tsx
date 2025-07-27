@@ -89,6 +89,19 @@ export function ContactSection() {
           </p>
         </div>
 
+        {/* Incubation Status */}
+        <div className={`flex items-center justify-center mb-12 transition-all duration-700 delay-200 ${
+          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+        }`}>
+          <div className="flex items-center space-x-4 bg-slate-900/50 border border-slate-800 rounded-lg p-4">
+            <img src="/hit.png" alt="HIT Logo" className="h-12 w-auto" />
+            <div className="text-white">
+              <p className="font-medium">Proudly Incubated by</p>
+              <p className="text-lg font-bold">Harare Institute of Technology</p>
+            </div>
+          </div>
+        </div>
+
         {/* Contact Content */}
         <div className="max-w-3xl mx-auto">
           {/* Contact Info Grid */}
