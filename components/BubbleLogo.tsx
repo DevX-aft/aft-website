@@ -3,7 +3,7 @@ import "./bubble-logo.css";
 
 export default function BubbleLogo() {
   return (
-    <div className="bubble-container mx-auto my-8">
+    <div className="bubble-container mx-auto my-4 sm:my-8">
       <video
         autoPlay
         loop
@@ -16,4 +16,4 @@ export default function BubbleLogo() {
       <img src="/aft.svg" alt="Logo" className="logo" />
     </div>
   );
-} 
+}

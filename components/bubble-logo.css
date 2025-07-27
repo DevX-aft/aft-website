@@ -1,9 +1,29 @@
 .bubble-container {
   position: relative;
-  width: 420px;
-  height: 420px;
+  width: 85vw;
+  max-width: 400px;
+  min-width: 200px;
+  aspect-ratio: 1 / 1;
   border-radius: 50%;
   overflow: hidden;
+  margin-bottom: 8rem;
+  /* For animation, add transition if you want */
+  transition: width 0.3s;
+}
+
+@media (min-width: 640px) {
+  .bubble-container {
+    width: 220px;
+    max-width: 420px;
+    margin-bottom: 0;
+  }
+}
+
+@media (min-width: 1024px) {
+  .bubble-container {
+    width: 420px;
+    max-width: 420px;
+  }
 }
 
 .bubble-bg {
@@ -18,7 +38,8 @@
   top: 50%;
   left: 50%;
   width: 60%;
+  height: auto;
   transform: translate(-50%, -50%);
   /* Neon blue glow only */
   filter: drop-shadow(0 0 32px #2196f3) drop-shadow(0 0 64px #2196f3) brightness(1.5);
-} 
+}
