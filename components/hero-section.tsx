@@ -149,13 +149,13 @@ export function HeroSection() {
           <div className="text-center md:text-left flex-1 w-full">
             <div className="space-y-2 sm:space-y-3 md:space-y-4 mb-3 sm:mb-5 md:mb-8 py-3 sm:py-6 md:py-8">
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold leading-tight md:leading-[1.3]">
-                <span className="block bg-gradient-to-r from-white via-cyan-200 to-blue-200 bg-clip-text text-transparent animate-fade-in-up">
+                <span className="block bg-gradient-to-r from-white via-cyan-200 to-blue-200 bg-clip-text text-transparent animate-fade-in-up leading-snug">
                   Transforming
                 </span>
-                <span className="block bg-gradient-to-r from-blue-400 via-cyan-400 to-white bg-clip-text text-transparent animate-fade-in-up animation-delay-200">
+                <span className="block bg-gradient-to-r from-blue-400 via-cyan-400 to-white bg-clip-text text-transparent animate-fade-in-up animation-delay-200 leading-snug">
                   Africa Through
                 </span>
-                <span className="block bg-gradient-to-r from-white via-cyan-400 to-blue-400 bg-clip-text text-transparent">
+                <span className="block bg-gradient-to-r from-white via-cyan-400 to-blue-400 bg-clip-text text-transparent leading-snug">
                   AI
                 </span>
               </h1>
