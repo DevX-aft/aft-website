@@ -42,17 +42,8 @@ export function Footer() {
           {/* Copyright and Links */}
           <div className="text-center md:text-right">
             <p className="text-gray-400 mb-2">
-              © 2024 Afrainity Technologies. All rights reserved.
+              © 2025 Afrainity Technologies. All rights reserved.
             </p>
-            <div className="flex items-center justify-center md:justify-end space-x-4">
-              <a href="#" className="text-gray-400 hover:text-purple-400 transition-colors text-sm">
-                Privacy Policy
-              </a>
-              <span className="text-gray-600">•</span>
-              <a href="#" className="text-gray-400 hover:text-purple-400 transition-colors text-sm">
-                Terms of Service
-              </a>
-            </div>
           </div>
         </div>
 
