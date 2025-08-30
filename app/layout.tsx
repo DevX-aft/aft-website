@@ -5,9 +5,6 @@ import './globals.css'
 
 export const metadata: Metadata = {
   title: 'Afrainity Technologies',
-  icons: {
-    icon: '/aft.svg',
-  },
   description: 'Afrainity Technologies – AI solutions for the future. Professional, trustworthy, and innovative.',
   openGraph: {
     title: 'Afrainity Technologies',
