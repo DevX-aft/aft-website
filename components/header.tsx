@@ -8,10 +8,11 @@ import { Menu, X } from "lucide-react"
 
 // Navigation links as a constant outside the component for performance
 const NAV_LINKS = [
-  { href: "#about", label: "About" },
-  { href: "#solutions", label: "Solutions" },
-  { href: "#why-choose-us", label: "Why Choose Us" },
-  { href: "#contact", label: "Contact" },
+  { href: "#about", label: "About", ariaLabel: "Learn about Afrainity Technologies" },
+  { href: "/services", label: "Services", ariaLabel: "View our comprehensive AI services" },
+  { href: "#solutions", label: "Solutions", ariaLabel: "View our AI solutions" },
+  { href: "#why-choose-us", label: "Why Choose Us", ariaLabel: "Discover why to choose Afrainity" },
+  { href: "/contact", label: "Contact", ariaLabel: "Get in touch with us" },
 ]
 
 export function Header() {
@@ -88,18 +89,39 @@ export function Header() {
   const headerHeight = Math.max(60, 76 - (scrollY / 20)) // Header shrinks slightly
 
   return (
-    <header
-      className={`sticky top-0 z-50 w-full transition-all duration-300
-        ${isScrolled
-          ? "bg-black/90 backdrop-blur-xl border-b border-slate-800/90 shadow-lg"
-          : "bg-black/40 backdrop-blur-sm border-b border-transparent"}
-      `}
-      style={{ 
-        height: `${headerHeight}px`,
-        minHeight: '60px'
-      }}
-      role="banner"
-    >
+    <>
+      {/* Navigation Schema for Google */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "SiteNavigationElement",
+            "name": "Main Navigation",
+            "@id": "main-navigation",
+            "url": "https://afrainity.com",
+            "hasPart": NAV_LINKS.map(link => ({
+              "@type": "SiteNavigationElement",
+              "name": link.label,
+              "description": link.ariaLabel,
+              "url": `https://afrainity.com${link.href}`
+            }))
+          })
+        }}
+      />
+      
+      <header
+        className={`sticky top-0 z-50 w-full transition-all duration-300
+          ${isScrolled
+            ? "bg-black/90 backdrop-blur-xl border-b border-slate-800/90 shadow-lg"
+            : "bg-black/40 backdrop-blur-sm border-b border-transparent"}
+        `}
+        style={{ 
+          height: `${headerHeight}px`,
+          minHeight: '60px'
+        }}
+        role="banner"
+      >
       <div className="container mx-auto px-4 h-full flex items-center justify-between">
         {/* Logo and Brand with Anthropic-style effects */}
         <Link
@@ -204,6 +226,7 @@ export function Header() {
               className="text-lg text-gray-200 hover:text-blue-400 transition-colors duration-200 py-3 px-2 rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
               tabIndex={isMenuOpen ? 0 : -1}
               onClick={() => setIsMenuOpen(false)}
+              aria-label={item.ariaLabel}
             >
               {item.label}
             </Link>
@@ -211,5 +234,6 @@ export function Header() {
         </div>
       </div>
     </header>
+    </>
   )
 }

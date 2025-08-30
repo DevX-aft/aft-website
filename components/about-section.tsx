@@ -45,20 +45,28 @@ export function AboutSection() {
   ]
 
   return (
-    <section ref={sectionRef} id="about" className="py-32 bg-black relative overflow-hidden">
+    <section 
+      ref={sectionRef} 
+      id="about" 
+      className="py-32 bg-black relative overflow-hidden"
+      aria-labelledby="about-heading"
+    >
       {/* Floating glow effects */}
-      <div className="absolute inset-0 pointer-events-none z-0">
+      <div className="absolute inset-0 pointer-events-none z-0" aria-hidden="true">
         <div className="absolute w-96 h-96 bg-blue-500/10 rounded-full blur-[120px] top-0 left-0 animate-pulse-slow" />
         <div className="absolute w-80 h-80 bg-cyan-500/10 rounded-full blur-[100px] bottom-0 right-0 animate-pulse-slow" />
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
         {/* Section Header */}
-        <div className="text-center mb-20">
+        <header className="text-center mb-20">
           <span className="text-blue-400 text-sm font-semibold tracking-wider uppercase">About Afrainity</span>
-          <h2 className={`text-5xl md:text-7xl font-bold mb-8 leading-[1.15] transition-all duration-1000 ${
-            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-          }`}>
+          <h2 
+            id="about-heading"
+            className={`text-5xl md:text-7xl font-bold mb-8 leading-[1.15] transition-all duration-1000 ${
+              isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+            }`}
+          >
             <span className="bg-gradient-to-r from-white via-blue-300 to-cyan-200 bg-clip-text text-transparent animate-fade-in-up mb-2 inline-block leading-snug">
               Pioneering the Future
             </span>
@@ -73,7 +81,7 @@ export function AboutSection() {
             We are pioneering the future of artificial intelligence in Africa, creating innovative solutions that bridge
             the gap between cutting-edge technology and practical business applications.
           </p>
-        </div>
+        </header>
 
         {/* Features Grid */}
         <div className="grid lg:grid-cols-3 gap-8 mb-20">

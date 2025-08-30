@@ -4,10 +4,46 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Performance optimizations */
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  /* Improve image loading performance */
+  img {
+    content-visibility: auto;
+  }
+  
+  /* Better focus management for accessibility */
+  :focus-visible {
+    outline: 2px solid theme('colors.blue.500');
+    outline-offset: 2px;
+  }
+}
+
 /* Custom utility for balanced text wrapping */
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+  
+  /* Performance utilities */
+  .will-change-transform {
+    will-change: transform;
+  }
+  
+  .content-visibility-auto {
+    content-visibility: auto;
   }
 }
 

@@ -37,7 +37,7 @@ export function SolutionsSection() {
     {
       icon: Robot,
       title: "Mutumwa AI",
-      description: "AI-powered customer service platform",
+      description: "AI-powered customer service platform designed for African businesses",
       features: ["Multilingual Support", "Task Automation", "Customer Insights"],
       gradient: "from-blue-500 to-cyan-400",
       bgGradient: "from-blue-900/30 to-cyan-900/30",
